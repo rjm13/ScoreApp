@@ -23,7 +23,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 const DoneSound = ['none', 'ting', 'rooster', 'whistle', 'doorbell', 'air horn', 'trombone', 'meep meep','tick tock!', 'bomb'];
 
-const Ticker = ['none', 'clock', 'stopwatch', 'grandfather clock', 'water tap', 'blood', 'war drums', 'jumanji', 'jeopordy'];
+const Ticker = ['none', 'clock', 'stopwatch', 'grandfather clock', 'water tap', 'blood', 'war drums'];
 
 //convert rounds from 1 to roman numerals
 const toRoman = require('roman-numerals').toRoman;

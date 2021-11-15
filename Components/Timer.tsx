@@ -53,8 +53,8 @@ const Timer = ({warning, length, ticker, donesound, settingchange} : {warning: b
         ticker === '4' ? setAudioUri(require('../assets/sounds/WaterTap.mp3')) : 
         ticker === '5' ? setAudioUri(require('../assets/sounds/Blood.mp3')) : 
         ticker === '6' ? setAudioUri(require('../assets/sounds/WarDrums.mp3')) : 
-        ticker === '7' ? setAudioUri(require('../assets/sounds/Jumanji.mp3')) : 
-        ticker === '8' ? setAudioUri(require('../assets/sounds/Jepordy.mp3')) : 
+        //ticker === '7' ? setAudioUri(require('../assets/sounds/Jumanji.mp3')) : 
+        //ticker === '8' ? setAudioUri(require('../assets/sounds/Jepordy.mp3')) : 
         setAudioUri(require('../assets/sounds/Clock.mp3'))
     }
 

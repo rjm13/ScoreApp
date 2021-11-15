@@ -18,7 +18,7 @@ const App = () => {
     'chalkboard-regular': require('./assets/fonts/chalkboard-se-regular.ttf'),
     'chalkboard-light': require('./assets/fonts/chalkboard-se-light.ttf'),
     'chalkboard-bold': require('./assets/fonts/chalkboard-se-bold.ttf'),
-    'boardgame': require('./assets/fonts/kidsboardgamefont.ttf'),
+    //'boardgame': require('./assets/fonts/kidsboardgamefont.ttf'),
   });
 
     if (!fontsLoaded) {
