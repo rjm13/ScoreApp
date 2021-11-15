@@ -1,21 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, SafeAreaView, StyleSheet, View, Text, StatusBar } from 'react-native';
+import { useFonts } from 'expo-font';
+import AppLoading  from 'expo-app-loading';
+import { AppContext } from './AppContext';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import AppNavigation from './Navigation/AppNavigation'
+
+StatusBar.setBarStyle("light-content");
+
+const App = () => {
+
+  const [userID, setUserID] = useState({});
+  const [ScorecardID, setScorecardID] = useState<string|null>(null);
+
+  let [fontsLoaded] = useFonts({
+    //'chalkduster': require('./assets/fonts/Chalkduster.ttf'),
+    'chalkboard-regular': require('./assets/fonts/chalkboard-se-regular.ttf'),
+    'chalkboard-light': require('./assets/fonts/chalkboard-se-light.ttf'),
+    'chalkboard-bold': require('./assets/fonts/chalkboard-se-bold.ttf'),
+    'boardgame': require('./assets/fonts/kidsboardgamefont.ttf'),
+  });
+
+    if (!fontsLoaded) {
+      return <AppLoading />;
+      } else {
+    return (
+      <AppContext.Provider value={{
+        userID,
+        setUserID: (user: {}) => setUserID(user),
+        ScorecardID,
+        setScorecardID: (id: string | null) => setScorecardID(id),
+      }}>
+        <AppNavigation/>
+      </AppContext.Provider>
+    );
+  }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
