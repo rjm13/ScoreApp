@@ -190,7 +190,7 @@ const SavedScores = ({navigation} : any) => {
                                       onRefresh={onRefresh}
                                     />
                                 }
-                                style={{marginTop: 20}}
+                                style={{marginTop: 0}}
                                 ListHeaderComponent={() => (
                                     <View style={{ alignItems: 'center', marginVertical: 10}}>
                                         {SavedCards.length === 0 ? (
@@ -202,7 +202,11 @@ const SavedScores = ({navigation} : any) => {
                                 )}
                                 ListFooterComponent={() => (
                                     <View style={{ alignItems: 'center', marginVertical: 20}}>
-                                        
+                                        {SavedCards.length === 0 ? (
+                                            <Text style={{textAlign: 'center', fontFamily: 'chalkboard-regular', margin: 20}}>
+                                                Press and hold to delete
+                                            </Text>
+                                        ) : null} 
                                     </View>
                                 )}
                             />

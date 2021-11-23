@@ -1005,8 +1005,10 @@ const UpdateExtra = () => {
 
 //render points total footer
     const renderFooter = ({ item } : {item: any}) => {
-        const color = item.total === leader && darkTheme === false ? 'green' :
-                    item.total === leader && darkTheme === true ? 'green' :
+        const color = item.total === leader && whiteTheme === true ? 'green' :
+                    item.total === leader && darkTheme === true ? 'cyan' :
+                    item.total === leader && chalkTheme === true ? 'cyan' :
+                    item.total === leader && legalPadTheme === true ? 'red' :
                     item.total !== leader && darkTheme || chalkTheme=== true ? '#fff' :
                     '#000'
         return (
@@ -1019,8 +1021,10 @@ const UpdateExtra = () => {
 
 //render rounds total footer
     const renderWinsFooter = ({ item } : {item: any}) => {
-        const color = item.roundWins === roundLeader && darkTheme === false ? 'green' :
-                      item.roundWins === roundLeader && darkTheme === true ? 'green' :
+        const color = item.roundWins === roundLeader && whiteTheme === true ? 'green' :
+                      item.roundWins === roundLeader && darkTheme === true ? 'cyan' :
+                      item.roundWins === roundLeader && chalkTheme === true ? 'cyan' :
+                      item.roundWins === roundLeader && legalPadTheme === true ? 'red' :
                       item.roundWins !== roundLeader && darkTheme || chalkTheme === true ? '#fff' :
                       '#000';
         return (
@@ -1313,6 +1317,7 @@ const UpdateExtra = () => {
             const backgroundColor = item === roundWinner && item !== 0 && isRoundWinnerEnabled === true && whiteTheme === true ? '#f0f0f0a5' : 
                                     item === roundWinner && item !== 0 && isRoundWinnerEnabled === true && darkTheme === true ? '#606060a5' :
                                     item === roundWinner && item !== 0 && isRoundWinnerEnabled === true && chalkTheme === true ? '#8080804D' :
+                                    item === roundWinner && item !== 0 && isRoundWinnerEnabled === true && legalPadTheme === true ? '#8080801A' :
                                     'transparent';
 
             const borderRightWidth = index + 1 === Teams.length ? 0 : 0.2;
@@ -1977,11 +1982,20 @@ const UpdateExtra = () => {
                 <Modal visible={visibleConfettiModal} onDismiss={hideConfettiModal} contentContainerStyle={confettiModalContainerStyle}>
                     <View style={{ paddingHorizontal: 20, paddingVertical: 0, backgroundColor: '#fff', borderRadius: 15, height: '100%', justifyContent: 'space-between'}}>
                     <ConfettiCannon count={400} origin={{x: -40, y: 50}} fadeOut={true} fallSpeed={4000}/>
-                        <View style={{ alignItems: 'center', marginVertical: 20, paddingBottom: 30,
+                        {/* <View style={{ 
+                            alignItems: 'center', marginVertical: 20, paddingBottom: 30,
                                        borderColor: '#155843', borderRadius: 15, borderWidth: 4,
                                        backgroundColor: '#155843cc'
-                                    }}>
-                            <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 10}}>
+                                    }}> */}
+                        <ImageBackground 
+                            source={require('../assets/goldplate.png')}
+                            imageStyle={{resizeMode: 'contain'}}
+                            style={{opacity: 0.8, position: 'absolute', transform: [{ rotate: '90deg' }], alignSelf: 'center', marginVertical: 0, 
+                            paddingBottom: 0, alignItems: 'center', justifyContent: 'center', width: 220, height: 300 }}
+                        />
+
+                            
+                            {/* <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 10}}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center'}}>
                                     <FontAwesome name='star' color='gold' size={16} style={{marginHorizontal: 4}} />
                                     <FontAwesome name='star' color='gold' size={16} style={{marginHorizontal: 4}} />
@@ -1995,27 +2009,28 @@ const UpdateExtra = () => {
                                     <FontAwesome name='star' color='gold' size={16} style={{marginHorizontal: 4}} />
                                     <FontAwesome name='star' color='gold' size={16} style={{marginHorizontal: 4}} />
                                 </View>
-                            </View>
-                            <View>
-                                <Text style={{color: '#fff', fontSize: 26, fontFamily: 'chalkboard-bold', textAlign: 'center', marginHorizontal: 10}}>
+                            </View> */}
+                            <View style={{marginTop: 80}}>
+                                <Text style={{color: '#000000', fontSize: 26, fontFamily: 'chalkboard-bold', textAlign: 'center', marginHorizontal: 10}}>
                                     {Teams[parseInt(ScorecardData.leader)]?.name}
                                 </Text>
-                                <Text style={{color: '#fff', fontFamily: 'chalkboard-light', fontSize: 20, flexWrap: 'wrap', textAlign: 'center'}}>
+                                <Text style={{color: '#303030', fontFamily: 'chalkboard-light', fontSize: 16, flexWrap: 'wrap', textAlign: 'center'}}>
                                     {Teams[parseInt(ScorecardData.leader)]?.playerNames?.join(' - ')}
                                 </Text>
                                 <Text style={{
-                                    color: '#155843', fontFamily: 'chalkboard-bold', fontSize: 20, flexWrap: 'wrap', textAlign: 'center',
-                                    backgroundColor: '#fff', borderRadius: 20, paddingVertical: 0, paddingHorizontal: 15, marginVertical: 10
+                                    alignSelf: 'center', color: '#303030', fontFamily: 'chalkboard-bold', fontSize: 18, flexWrap: 'wrap', textAlign: 'center',
+                                    backgroundColor: 'transparent', width: '50%', borderRadius: 10, paddingVertical: 0, paddingHorizontal: 15, marginVertical: 10
                                     }}>
                                     {Teams[parseInt(ScorecardData.leader)]?.total} Points
                                 </Text>
                             </View>
-                        </View>
+                        {/* </ImageBackground> */}
+                        {/* </View> */}
                         <View>
                             <FlatList 
                                 data={theRest}
                                 keyExtractor={(item, index) => index.toString()}
-                                style={{ height: 320}}
+                                style={{ height: 420}}
                                 showsVerticalScrollIndicator={false}
                                 contentContainerStyle={{width: '100%'}}
                                 renderItem={({item, index}) => 
@@ -2071,13 +2086,7 @@ const UpdateExtra = () => {
                                                 </Text>
                                             </View>
                                         </View>
-                                        
-                                        
-                                    </View>
-                                )}
-                            />
-                        </View>
-                        <View style={{ alignItems: 'center', marginBottom: 10}}>
+                                        <View style={{ alignItems: 'center', marginBottom: 10}}>
                             <TouchableOpacity onPress={MarkDone}>
                                 <View style={{ width: 200, height: 50, borderRadius: 25, backgroundColor: '#155843', alignItems: 'center', justifyContent: 'center'}}>
                                     {isLoading === true ? (
@@ -2088,6 +2097,14 @@ const UpdateExtra = () => {
                                 </View>
                             </TouchableOpacity>
                         </View>
+                                        
+                                        
+                                    </View>
+                                )}
+                            />
+                            
+                        </View>
+                        
                     </View>
                 </Modal>
 
@@ -2221,7 +2238,9 @@ const UpdateExtra = () => {
             </Portal>
 
  {/* Header*/}
-            <View style={{ width: SCREEN_WIDTH, height: 80, justifyContent: 'space-between', backgroundColor: '#155843', flexDirection: 'row', alignItems: 'center' }}>
+            <View style={{ width: SCREEN_WIDTH, height: 80, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center',
+                        backgroundColor: darkTheme ? "#000" : chalkTheme ? "#000" : legalPadTheme ? "#555555" : '#155843',  
+                        }}>
                 <TouchableOpacity onPress={() => navigation.push('Home')}>
                     <View style={{marginTop: 20, marginHorizontal: 20}}>
                         <Feather 
@@ -2250,8 +2269,8 @@ const UpdateExtra = () => {
                         <OptionsMenu
                             customButton={MoreIcon}
                             destructiveIndex={1}
-                            options={["New","Quick Load", "Save Settings", "Save", "Mark as Complete", "Share"]}
-                            actions={[showClearModal, showLoadModal, SaveSettings, SaveToStorage, showCompleteModal, Share]}
+                            options={["New","Quick Load", "Save", "Mark as Complete", "Cancel"]}
+                            actions={[showClearModal, showLoadModal, SaveToStorage, showCompleteModal]}
                         />
                     </View> 
                 </View>

@@ -176,7 +176,7 @@ const SavedItems = ({item} : any) => {
                     </TouchableWithoutFeedback>
                 </Animatable.View> 
 
-                <View style={{marginHorizontal: 10, marginTop: 20}}>
+                <View style={{marginHorizontal: 10, marginTop: 0}}>
                         
                             <FlatList 
                                 data={SavedCards}
