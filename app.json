@@ -25,6 +25,9 @@
         "foregroundImage": "./assets/LogoRedes.png",
         "backgroundColor": "#FFFFFF"
       },
+      "config": {
+        "googleMobileAdsAppId":"ca-app-pub-8173570566905121~1559924913"
+      },
       "package": "com.msm.ScoreBoardApp"
     },
     "web": {

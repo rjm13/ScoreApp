@@ -253,7 +253,7 @@ useEffect(() => {
 //themes
     const ThemeColor = 
             chalkTheme === true ? '#fff' : 
-            legalPadTheme === true ? '#6a0dad' :
+            legalPadTheme === true ? '#000' :
             darkTheme === true ? 'gold' :
             whiteTheme === true ? '#000' : '#000';
 
@@ -1007,8 +1007,8 @@ const UpdateExtra = () => {
     const renderFooter = ({ item } : {item: any}) => {
         const color = item.total === leader && whiteTheme === true ? 'green' :
                     item.total === leader && darkTheme === true ? 'cyan' :
-                    item.total === leader && chalkTheme === true ? 'cyan' :
-                    item.total === leader && legalPadTheme === true ? 'red' :
+                    item.total === leader && chalkTheme === true ? 'pink' :
+                    item.total === leader && legalPadTheme === true ? '#6a0dad' :
                     item.total !== leader && darkTheme || chalkTheme=== true ? '#fff' :
                     '#000'
         return (
@@ -1023,8 +1023,8 @@ const UpdateExtra = () => {
     const renderWinsFooter = ({ item } : {item: any}) => {
         const color = item.roundWins === roundLeader && whiteTheme === true ? 'green' :
                       item.roundWins === roundLeader && darkTheme === true ? 'cyan' :
-                      item.roundWins === roundLeader && chalkTheme === true ? 'cyan' :
-                      item.roundWins === roundLeader && legalPadTheme === true ? 'red' :
+                      item.roundWins === roundLeader && chalkTheme === true ? 'pink' :
+                      item.roundWins === roundLeader && legalPadTheme === true ? '#6a0dad' :
                       item.roundWins !== roundLeader && darkTheme || chalkTheme === true ? '#fff' :
                       '#000';
         return (

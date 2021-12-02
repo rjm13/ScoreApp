@@ -4,9 +4,14 @@ import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import uuid from 'react-native-uuid';
 import { AppContext } from '../AppContext';
+import {AdMobBanner, setTestDeviceIDAsync} from "expo-ads-admob";
 
 
 const Home = ({navigation} : {navigation: any}) => {
+
+    React.useEffect(() => {
+        setTestDeviceIDAsync("EMULATOR");
+     }, []);
 
     const { ScorecardID } = useContext(AppContext);
 
@@ -99,7 +104,25 @@ const Home = ({navigation} : {navigation: any}) => {
                 </TouchableOpacity>
             ) : null}
 
-            
+            <View
+            style={{
+                shadowOffset: { width: 5, height: 5 },
+                width: "90%",
+                borderRadius: 5,
+                alignSelf: "center",
+                alignContent: "center",
+                alignItems: "center",
+                marginTop: 10,
+                marginBottom: 10,
+            }}
+            >
+            <AdMobBanner
+                bannerSize="smartBannerLandscape"
+                adUnitID="ca-app-pub-8173570566905121/1015857796" 
+                servePersonalizedAds={true}
+                onDidFailToReceiveAdWithError={(e) => console.log(e)}
+                />
+            </View>
 
         </View>
         
