@@ -923,7 +923,7 @@ const UpdateExtra = () => {
 
     const TotalPoints = ArrayTotal.reduce((a,v) => a = a + v, 0)
 
-    const StdDev = (!ArrayTotal || ArrayTotal.length === 0) ? 0 : Math.sqrt(ArrayTotal.map(x => Math.pow(x - TotalPoints/ArrayTotal.length, 2)).reduce((a, b) => a + b) / ArrayTotal.length)
+    const StdDev = Math.round((!ArrayTotal || ArrayTotal.length === 0) ? 0 : Math.sqrt(ArrayTotal.map(x => Math.pow(x - TotalPoints/ArrayTotal.length, 2)).reduce((a, b) => a + b) / ArrayTotal.length))
     
     const Spread = Math.round(((Teams[parseInt(ScorecardData.leader)]?.total - Math.max(...secondArrayTotal)) / Math.max(...secondArrayTotal)) * 100)
 
@@ -1242,7 +1242,10 @@ const UpdateExtra = () => {
                             { isBidEnabled === true ? (
                                 <View style={{ paddingBottom: 4, borderBottomWidth: 0.3, borderColor: 'lightgray', flexDirection: 'row', justifyContent: 'space-around', width: CELL_WIDTH/3}}>
                                         <View style={{ width: 50, alignItems: 'center'}}>
-                                            <Text style={{fontWeight: 'bold', fontSize: 11}}>
+                                            <Text style={{
+                                                fontWeight: 'bold', fontSize: 11,
+                                                color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                            }}>
                                                 Bid
                                             </Text>
                                         </View>   
@@ -1252,7 +1255,10 @@ const UpdateExtra = () => {
                             { isMeldEnabled === true ? (
                                 <View style={{ paddingBottom: 4, borderBottomWidth: 0.3, borderColor: 'lightgray', flexDirection: 'row', justifyContent: 'space-around', width: CELL_WIDTH/3}}>
                                         <View style={{ width: 50, alignItems: 'center'}}>
-                                            <Text style={{fontWeight: 'bold', fontSize: 11}}>
+                                            <Text style={{
+                                                fontWeight: 'bold', fontSize: 11,
+                                                color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                            }}>
                                                 Meld
                                             </Text>
                                         </View>
@@ -1262,7 +1268,10 @@ const UpdateExtra = () => {
                             { isBonusEnabled === true ? (
                                 <View style={{ paddingBottom: 4, borderBottomWidth: 0.3, borderColor: 'lightgray', flexDirection: 'row', justifyContent: 'space-around', width: CELL_WIDTH/3}}>
                                         <View style={{ width: 50, alignItems: 'center'}}>
-                                            <Text style={{fontWeight: 'bold', fontSize: 11}}>
+                                            <Text style={{
+                                                fontWeight: 'bold', fontSize: 11,
+                                                color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                            }}>
                                                 Bonus
                                             </Text>
                                         </View>
@@ -1272,17 +1281,23 @@ const UpdateExtra = () => {
                         </View>
                             <View style={{ paddingBottom: 8, flexDirection: 'row', justifyContent: 'space-around', width: CELL_WIDTH}}>
                                     { isBidEnabled === true ? (
-                                        <Text style={{fontFamily: 'chalkboard-light'}}>
+                                        <Text style={{fontFamily: 'chalkboard-light',
+                                            color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                        }}>
                                             {item[0]}
                                         </Text>
                                     ) : null}
                                         { isMeldEnabled === true ? (
-                                        <Text style={{fontFamily: 'chalkboard-light'}}>
+                                        <Text style={{fontFamily: 'chalkboard-light',
+                                            color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                        }}>
                                             {item[1]}
                                         </Text>
                                     ) : null}
                                         { isBonusEnabled === true ? (
-                                        <Text style={{fontFamily: 'chalkboard-light'}}>
+                                        <Text style={{fontFamily: 'chalkboard-light',
+                                            color: darkTheme ? "#00ffff" : chalkTheme ? "#fff" : legalPadTheme ? "#000" : '#000'
+                                        }}>
                                             {item[2]}
                                         </Text>
                                     ) : null}

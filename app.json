@@ -2,9 +2,9 @@
   "expo": {
     "name": "ScoreVerse",
     "slug": "ScoreVerse",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
-    "icon": "./assets/LogoRedes.png",
+    "icon": "./assets/Logo4.png",
     "splash": {
       "image": "./assets/Splash.png",
       "resizeMode": "cover",
@@ -20,9 +20,9 @@
       "supportsTablet": true
     },
     "android": {
-      "versionCode": 1,
+      "versionCode": 3,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/LogoRedes.png",
+        "foregroundImage": "./assets/Logo4.png",
         "backgroundColor": "#FFFFFF"
       },
       "config": {
@@ -31,7 +31,7 @@
       "package": "com.msm.ScoreBoardApp"
     },
     "web": {
-      "favicon": "./assets/Logo.png"
+      "favicon": "./assets/Logo4.png"
     }
   }
 }

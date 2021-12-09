@@ -114,10 +114,12 @@ const Home = ({navigation} : {navigation: any}) => {
                 alignItems: "center",
                 marginTop: 10,
                 marginBottom: 10,
+                //backgroundColor: 'blue',
             }}
             >
             <AdMobBanner
                 bannerSize="smartBannerLandscape"
+                //adUnitID="ca-app-pub-3940256099942544/6300978111"
                 adUnitID="ca-app-pub-8173570566905121/1015857796" 
                 servePersonalizedAds={true}
                 onDidFailToReceiveAdWithError={(e) => console.log(e)}
