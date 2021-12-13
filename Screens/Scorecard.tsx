@@ -1503,9 +1503,9 @@ const UpdateExtra = () => {
                 <Modal visible={visibleCompleteModal} onDismiss={hideCompleteModal} contentContainerStyle={completeModalContainerStyle}>
                     <View style={{ padding: 20, backgroundColor: '#fff', borderRadius: 15}}>
                         <View style={{ alignItems: 'center', marginVertical: 40}}>
-                            <Text style={{fontSize: 16, fontFamily: 'chalkboard-light', textAlign: 'center'}}>
+                            {/* <Text style={{fontSize: 16, fontFamily: 'chalkboard-light', textAlign: 'center'}}>
                                 Once marked as complete, this scorecard will be archived and added to your lifetime record.
-                            </Text>
+                            </Text> */}
                             <Text style={{marginTop: 20, fontSize: 18, fontFamily: 'chalkboard-regular', textAlign: 'center'}}>
                                 Are you sure you want to end this game?
                             </Text>
@@ -2033,10 +2033,16 @@ const UpdateExtra = () => {
                                     {Teams[parseInt(ScorecardData.leader)]?.playerNames?.join(' - ')}
                                 </Text>
                                 <Text style={{
-                                    alignSelf: 'center', color: '#303030', fontFamily: 'chalkboard-bold', fontSize: 18, flexWrap: 'wrap', textAlign: 'center',
-                                    backgroundColor: 'transparent', width: '50%', borderRadius: 10, paddingVertical: 0, paddingHorizontal: 15, marginVertical: 10
+                                    alignSelf: 'center', color: '#303030', fontFamily: 'chalkboard-bold', fontSize: 16, flexWrap: 'wrap', textAlign: 'center',
+                                    backgroundColor: 'transparent', width: '50%', borderRadius: 10, paddingVertical: 0, paddingHorizontal: 15, marginVertical: 0
                                     }}>
                                     {Teams[parseInt(ScorecardData.leader)]?.total} Points
+                                </Text>
+                                <Text style={{
+                                    alignSelf: 'center', color: '#303030', fontFamily: 'chalkboard-bold', fontSize: 16, flexWrap: 'wrap', textAlign: 'center',
+                                    backgroundColor: 'transparent', width: '60%', borderRadius: 10, paddingVertical: 0, paddingHorizontal: 15, marginVertical: 0
+                                    }}>
+                                    {Teams[parseInt(ScorecardData.leader)]?.roundWins} Rounds Won
                                 </Text>
                             </View>
                         {/* </ImageBackground> */}
@@ -2049,7 +2055,7 @@ const UpdateExtra = () => {
                                 showsVerticalScrollIndicator={false}
                                 contentContainerStyle={{width: '100%'}}
                                 renderItem={({item, index}) => 
-                                    <View style={{marginTop: 20}}>  
+                                    <View style={{marginTop: 4}}>  
                                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
                                             <Text style={{fontFamily: 'chalkboard-regular', fontSize: 18}}>
                                                 {item.name}
@@ -2059,45 +2065,45 @@ const UpdateExtra = () => {
                                             </Text>
                                         </View>
                                         <Text style={{fontFamily: 'chalkboard-light', fontSize: 14, marginTop: 0}}>
-                                            {Teams[index].playerNames?.join(' - ')}
+                                            {Teams[index]?.playerNames?.join(' - ')}
                                         </Text>
                                     </View> 
                                     }
                                 ListFooterComponent={() => (
                                     <View style={{borderTopWidth: 0.5, borderColor: 'lightgray', marginTop: 20}}>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20}}>
-                                            <View style={{backgroundColor: '#e3e3e3', borderRadius: 10, width: 120, height: 100, elevation: 2, justifyContent: 'center'}}>
-                                                <Text style={{ textAlign: 'center', fontFamily: 'chalkboard-bold', fontSize: 26, }}>
+                                        <View style={{ justifyContent: 'space-around', marginTop: 20}}>
+                                            <View style={{justifyContent: 'space-between', alignContent: 'center', flexDirection: 'row', marginBottom: 20, backgroundColor: '#e3e3e3', borderRadius: 10, height: 60, elevation: 2}}>
+                                                <Text style={{ marginLeft: 20, alignSelf: 'center', textAlign: 'center', fontFamily: 'chalkboard-bold', fontSize: 26, }}>
                                                     {Scores.length}
                                                 </Text>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,}}>
+                                                <Text style={{ marginRight: 20, alignSelf: 'center', textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,}}>
                                                     Rounds Played
                                                 </Text>
                                             </View>
-                                            <View style={{backgroundColor: '#e3e3e3', borderRadius: 10, width: 120, height: 100,elevation: 2, justifyContent: 'center'}}>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-bold', fontSize: 26, }}>
+                                            <View style={{justifyContent: 'space-between', alignContent: 'center', flexDirection: 'row', marginBottom: 20, backgroundColor: '#e3e3e3', borderRadius: 10, height: 60, elevation: 2}}>
+                                                <Text style={{ marginLeft: 20, alignSelf: 'center', textAlign: 'center',fontFamily: 'chalkboard-bold', fontSize: 26, }}>
                                                     {TotalPoints}
                                                 </Text>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,  }}>
-                                                    Points Scored
+                                                <Text style={{ marginRight: 20, alignSelf: 'center', textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,}}>
+                                                    Total Points Scored
                                                 </Text>
                                             </View>
                                         </View>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginTop: 20, marginBottom: 20}}>
-                                            <View style={{backgroundColor: '#e3e3e3', borderRadius: 10, width: 120, height: 100, elevation: 2, justifyContent: 'center'}}>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-bold', fontSize: 26,  }}>
+                                        <View style={{ justifyContent: 'space-around', marginBottom: 20}}>
+                                            <View style={{justifyContent: 'space-between', alignContent: 'center', flexDirection: 'row', marginBottom: 20, backgroundColor: '#e3e3e3', borderRadius: 10, height: 60, elevation: 2}}>
+                                                <Text style={{ marginLeft: 20, alignSelf: 'center', textAlign: 'center', fontFamily: 'chalkboard-bold', fontSize: 26, }}>
                                                     {StdDev}
                                                 </Text>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14, }}>
-                                                    Std Dev
+                                                <Text style={{ marginRight: 20, alignSelf: 'center', textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,}}>
+                                                    Standard Deviation
                                                 </Text>
                                             </View>
-                                            <View style={{backgroundColor: '#e3e3e3', borderRadius: 10, width: 120, height: 100, elevation: 2, justifyContent: 'center'}}>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-bold', fontSize: 26, }}>
+                                            <View style={{justifyContent: 'space-between', alignContent: 'center', flexDirection: 'row', marginBottom: 20, backgroundColor: '#e3e3e3', borderRadius: 10, height: 60, elevation: 2}}>
+                                                <Text style={{ marginLeft: 20, alignSelf: 'center', textAlign: 'center', fontFamily: 'chalkboard-bold', fontSize: 26, }}>
                                                     {Spread}%
                                                 </Text>
-                                                <Text style={{ textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14, }}>
-                                                    1st to 2nd
+                                                <Text style={{ marginRight: 20, alignSelf: 'center', textAlign: 'center',fontFamily: 'chalkboard-regular', fontSize: 14,}}>
+                                                    Difference (1st to 2nd)
                                                 </Text>
                                             </View>
                                         </View>
