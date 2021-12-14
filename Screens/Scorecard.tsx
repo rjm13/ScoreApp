@@ -972,7 +972,8 @@ const UpdateExtra = () => {
                 <TouchableOpacity onPress={() => showTeamModal({name, id})} onLongPress={() => showDeleteTeamModal(id)}>
                     <View style={{flexDirection: 'row', alignItems: 'center',justifyContent: 'space-between', margin: 10}}>
                         <Text style={{fontFamily: 'chalkboard-bold', fontSize: 16, color: '#000000a5'}}>
-                            {Teams[id - 1].name}
+                            {/* {Teams[id - 1].name} */}
+                            {TeamNames[id - 1]}
                         </Text>
                         <View style={{ flexDirection: 'row', alignItems: 'center'}}>
                                 <Feather 
